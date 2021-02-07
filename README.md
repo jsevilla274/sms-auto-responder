@@ -2,14 +2,12 @@
 A simple node application demonstrating the ability to send and receive SMS messages using the Telnyx Messaging API
 
 ## Pre-requisites
----
 * a [Telnyx Account](https://telnyx.com/sign-up)
 * a [Telnyx Phone Number](https://portal.telnyx.com/#/app/numbers/my-numbers)
 * [ngrok](https://ngrok.com/) or a similar service that allows you to tunnel public webhook requests to your local development environment
 * [node.js and npm](https://nodejs.org/en/)
 
 ## Setup
----
 ### Step 1 - Cloning the repo and installing dependencies
 Run the following commands to get started
 ```
@@ -66,7 +64,6 @@ Finally, navigate to the [Numbers Portal](https://portal.telnyx.com/#/app/number
 This example attaches the "SMS Auto Responder" messaging profile to the number +1-800-000-0000.
 
 ## Running
----
 After setting up, navigate to the project root and run the application
 ```
 $ node index.js
@@ -74,6 +71,5 @@ $ node index.js
 Once the server starts, you should be able to send a text message to the Telnyx number associated with the messaging profile and get a response. Pay close attention to the replies, as different messages return different replies!
 
 ## Credits
----
 * team-telnyx's [express-messaging](https://github.com/team-telnyx/demo-node-telnyx/tree/master/express-messaging) repo for code snippets in index.js and for the basis of this README
 * Telnyx's SMS [Sending](https://developers.telnyx.com/docs/v2/messaging/quickstarts/sending-sms-and-mms?lang=node) and [Receiving](https://developers.telnyx.com/docs/v2/messaging/quickstarts/receiving-sms-and-mms?lang=node) documentation pages
