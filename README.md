@@ -1,5 +1,5 @@
 # SMS Auto Responder
-A simple node application demonstrating the ability to use the Telnyx Messaging API to send and receive SMS messages
+A simple node application demonstrating the ability to send and receive SMS messages using the Telnyx Messaging API
 
 ## Pre-requisites
 ---
@@ -55,9 +55,9 @@ Assuming you have a [Telnyx account](https://telnyx.com/sign-up) and have set up
 
 ![Add new profile](images/add_profile.png)
 
-Give the profile in name in the **Profile Name** field. This example uses the name "SMS Auto Responder". 
+Give the profile a name in the **Profile Name** field. This example uses the name "SMS Auto Responder". 
 
-Then, enter the application url from the previous step in the **Send a webhook to this url** field, adding `/inboundWebhook` to the end of it. This is done because the application receives inbound SMS webhooks through this endpoint, as defined in `index.js`TODO. The complete url should look something like `https://{your-url}.ngrok.io/inboundWebhook` if you are using ngrok.
+Then, enter the application url from the previous step in the **Send a webhook to this url** field, adding `/inboundWebhook` to the end of it. This is done because the application receives inbound SMS webhooks through this endpoint, as defined in [index.js](index.js). The complete url should look something like `https://{your-url}.ngrok.io/inboundWebhook` if you are using ngrok.
 
 Finally, navigate to the [Numbers Portal](https://portal.telnyx.com/#/app/numbers/my-numbers) and assign the previously created messaging profile to your Telnyx number.
 
