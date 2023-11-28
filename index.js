@@ -28,6 +28,7 @@ const inboundController = (req, res) => {
     const inboundNumber = req.body.data.payload.from.phone_number;
     const inboundMessage = req.body.data.payload.text;
     console.log(`New message from ${inboundNumber}: ${inboundMessage}`);
+    console.log(req.body, "Request Body");
     
     // check keywords in received text
     const rePizza = new RegExp('pizza', 'i');
@@ -43,12 +44,12 @@ const inboundController = (req, res) => {
     }
     
     // send SMS
-    const ourNumber = req.body.data.payload.to[0].phone_number; 
+    const ourNumber = req.body.data.payload.to[0].phone_number; //pulls phone number from text payload
     telnyx.messages.create({
         from: ourNumber,
         to: inboundNumber,
         text: outboundMessage,
-        webhook_url: (new URL('/outboundWebhook', `${req.protocol}://${req.hostname}`)).href
+        webhook_url: (new URL('/webhooks', `${req.protocol}://${req.hostname}`)).href
     }).catch((err, response) => {
         console.log('Error sending message!');
         console.log(err);
@@ -63,8 +64,8 @@ const outboundController = (req, res) => {
 app.use(express.json()); // middleware to reinterpret json as object
 app.use(webhookValidator); // webhook validation middleware
 
-app.post('/inboundWebhook', inboundController);
-app.post('/outboundWebhook', outboundController);
+app.post('/webhooks', inboundController);
+app.post('/webhooks', outboundController);
 
 app.listen(config.TELNYX_APP_PORT, () => {
     console.log(`App running on port ${config.TELNYX_APP_PORT}`);

@@ -1,4 +1,4 @@
-# SMS Auto Responder
+# Incoming and Outgoing Messaging App
 A simple node application demonstrating the ability to send and receive SMS messages using the Telnyx Messaging API
 
 ## Pre-requisites
